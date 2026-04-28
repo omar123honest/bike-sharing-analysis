@@ -37,7 +37,7 @@ st.sidebar.title("🔍 Filter Data")
 year_opts = sorted(day_df["yr"].unique())
 sel_year  = st.sidebar.multiselect("Tahun", year_opts, default=year_opts)
 
-season_opts = day_df["season"].cat.categories.tolist()
+season_opts = sorted(day_df["season"].dropna().unique().tolist())
 sel_season  = st.sidebar.multiselect("Musim", season_opts, default=season_opts)
 
 # Apply filters
